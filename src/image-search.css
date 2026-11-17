@@ -1,0 +1,4 @@
+.image-find-layer{position:absolute;left:50%;top:50%;pointer-events:none;transform-origin:center;z-index:1}
+.image-find-match{position:absolute;background:#ffe14d66;outline:1px solid #bd8a00}
+.image-find-match.active{background:#ff922b88;outline:2px solid #e65e00}
+@media print{.image-find-layer{display:none}}

@@ -1,0 +1,45 @@
+/* Standard title bar, bordered monochrome icon groups and independent display mode. */
+.window-chrome{position:relative;flex:none;z-index:30;color:var(--secondary);font-size:12px}
+.titlebar{height:32px;display:flex;align-items:stretch;background:var(--bar);user-select:none}
+.titlebar-caption{display:flex;align-items:center;gap:12px;flex:1;min-width:0;padding-left:12px;overflow:hidden}
+.titlebar .window-title{flex:0 1 auto;max-width:48%;min-width:32px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;color:var(--foreground)}
+.titlebar-info{display:flex;align-items:center;gap:9px;flex:1;min-width:0;padding-right:8px;overflow:hidden}
+.titlebar .type-badge{flex:none;font-size:9px;letter-spacing:.4px;padding:1px 5px;border:1px solid var(--border);border-radius:3px;color:var(--muted)}
+.titlebar #file-status{display:block;flex:none;max-width:none;font-size:11px;white-space:nowrap;color:var(--muted)}
+.titlebar #notice{display:block;flex:1;min-width:0;max-width:none;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:11px;color:var(--muted)}
+.caption-controls{display:flex;flex:none}
+.caption-button{display:flex;align-items:center;justify-content:center;width:46px;height:32px;flex:none;border-radius:0;color:var(--secondary)}
+.caption-button svg{width:14px;height:14px;pointer-events:none}.caption-button:hover{background:var(--hover)}
+.caption-close:hover{background:#c42b1c;color:#fff}.caption-button.pin-button{width:36px}.pin-button.pinned{color:var(--foreground);background:var(--surface-alt)}
+.toolbar-host{position:relative;height:10px;min-height:10px;background:var(--bar);border-bottom:1px solid var(--border)}
+#toolbar-reveal{position:absolute;right:8px;top:0;width:30px;height:10px;display:flex;align-items:center;justify-content:center;padding:0;border-radius:0 0 3px 3px;color:var(--muted)}
+#toolbar-reveal svg{width:12px;height:12px}
+.command-toolbar{position:absolute;inset:9px 0 auto;display:flex;align-items:center;flex-wrap:wrap;gap:4px;min-height:44px;padding:5px 8px;background:var(--bar);border-top:1px solid var(--border);border-bottom:1px solid var(--border);box-shadow:none;visibility:hidden;opacity:0;transform:translateY(-4px);pointer-events:none;transition:opacity 100ms,transform 100ms;max-height:65vh;overflow-y:auto;scrollbar-width:thin}
+.window-chrome:hover .command-toolbar,.toolbar-host:focus-within .command-toolbar,#app.toolbar-open .command-toolbar{visibility:visible;opacity:1;transform:none;pointer-events:auto}
+#app.toolbar-pinned .toolbar-host{height:auto;border-bottom:0}
+#app.toolbar-pinned .command-toolbar{position:relative;inset:auto;visibility:visible;opacity:1;transform:none;pointer-events:auto;transition:none}
+#app.toolbar-pinned #toolbar-reveal{display:none}
+.toolbar-group{display:inline-flex;align-items:center;flex-wrap:wrap;gap:2px;padding-right:7px;margin-right:2px;border-right:1px solid var(--border);min-height:30px}
+.toolbar-group:not(:has(button:not([hidden]),input:not([hidden]),select:not([hidden]))){display:none}
+.command-toolbar button,.command-toolbar #controls button{height:32px;width:32px;min-height:32px;min-width:32px;flex:none;padding:6px;border:1px solid var(--field-border);border-radius:3px;background:transparent;color:var(--secondary);display:inline-flex;align-items:center;justify-content:center}
+.command-toolbar button:hover,.command-toolbar #controls button:hover{background:var(--hover);border-color:var(--secondary)}
+.command-toolbar button.active,.command-toolbar button[aria-pressed=true],.command-toolbar #controls button.active,.command-toolbar #controls button[aria-pressed=true]{background:var(--surface-alt);color:var(--foreground)}
+.command-toolbar svg{width:16px;height:16px;flex:none}.command-toolbar .icon-button{width:32px;height:32px;padding:6px}
+.command-toolbar #controls,.command-toolbar #format-controls,.format-tools-host,.command-toolbar .pdf-tools{display:contents}
+.command-toolbar .zoom-input{width:48px;height:30px;border:1px solid var(--field-border);background:transparent;text-align:center;padding:3px;font-size:12px;appearance:textfield}
+.command-toolbar .zoom-input:hover,.command-toolbar .zoom-input:focus{border-color:var(--field-border);background:var(--field)}
+.command-toolbar #pdf-controls{font-variant-numeric:tabular-nums}
+.file-navigation{display:inline-flex;align-items:center;gap:1px;flex:none}.command-toolbar .file-navigation button{min-width:32px;padding:6px}.file-navigation svg{width:13px;height:13px}
+#folder-position{font-size:11px;font-variant-numeric:tabular-nums;min-width:43px;text-align:center;color:var(--muted)}
+.toolbar-display-controls{display:inline-flex;align-items:center;gap:1px;margin-left:auto;align-self:flex-end}
+.toolbar-display-controls button{min-width:32px;width:32px;padding:6px}.toolbar-display-controls svg{width:14px;height:14px}
+@media(max-width:700px){.titlebar-caption{gap:7px}.titlebar-info{gap:6px}.titlebar .type-badge{display:none}}
+@media(max-width:480px){.titlebar #file-status{display:none}.titlebar .window-title{max-width:62%}.caption-button{width:36px}.caption-button.pin-button{width:30px}.command-toolbar{padding:4px}.toolbar-group{padding-right:4px;margin-right:0}.command-toolbar button{padding:6px}}
+@media(prefers-reduced-motion:reduce){.command-toolbar{transition:none}}
+
+.command-toolbar button:focus-visible,.caption-button:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+
+.command-toolbar #header-pin{border:0;background:transparent}
+.command-toolbar #header-pin:hover{background:var(--hover)}
+.command-toolbar .zoom-input::-webkit-inner-spin-button,.command-toolbar .zoom-input::-webkit-outer-spin-button{appearance:none;margin:0}
+.command-toolbar .format-tools>.format-label{display:none}.command-toolbar .format-tools input:not([type=range]),.command-toolbar .format-tools select{height:30px;max-width:min(220px,65vw);min-width:44px;padding:3px 6px;border:1px solid var(--field-border);border-radius:3px;background:var(--field);color:var(--foreground);font:inherit}.command-toolbar .format-tools input[type=number]{width:52px;text-align:center}.command-toolbar .format-tools span{white-space:nowrap;font-variant-numeric:tabular-nums}.command-toolbar .format-status{max-width:180px;overflow:hidden;text-overflow:ellipsis;color:var(--muted);font-size:11px}.command-toolbar .toolbar-group{max-width:100%;flex-shrink:0}.command-toolbar .format-tools .toolbar-group{gap:3px}.command-toolbar .media-tools input[type=range]{padding:0;margin:0;width:120px;min-width:80px}.command-toolbar .media-tools input[aria-label=Volume]{width:64px;min-width:54px}.command-toolbar .media-tools .tool-field{margin:0}.command-toolbar .media-tools .tool-field>span{display:none}.command-toolbar .media-tools .media-time{font-size:11px;min-width:72px}.media-player.shared-media-tools video{flex:1;min-height:0;height:100%;object-fit:contain}.media-player.shared-media-tools .media-name{position:absolute;inset:auto 0 12px;text-align:center;pointer-events:none}

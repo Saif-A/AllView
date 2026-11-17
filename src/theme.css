@@ -1,0 +1,31 @@
+/* Neutral Windows-style layers. File pixels/fixed-layout pages keep their colors. */
+:root {
+  color-scheme: light;
+  --foreground:#1a1a1a; --secondary:#424242; --muted:#606060;
+  --app-bg:#f3f3f3; --bar:#f9f9f9; --surface:#ffffff; --surface-alt:#ededed;
+  --field:#ffffff; --field-border:#8a8a8a; --border:#0000001f;
+  --hover:#00000009; --selected:#0067c014; --folder-fill:#0067c026; --selection:#0067c035;
+  --accent:#0067c0; --accent-hover:#005a9e; --on-accent:#ffffff;
+  --checker-a:#e5e5e5; --checker-b:#f2f2f2; --error:#b42318;
+  --syntax-comment:#606060; --syntax-purple:#6f42a1; --syntax-blue:#0050a4;
+  --syntax-string:#14632d; --syntax-number:#875300; --syntax-red:#a82424; --syntax-cyan:#006477;
+  --paper:var(--surface); --ink:var(--foreground);
+}
+/* Fresh launches start light, independently of Windows appearance. */
+:root[data-theme=dark] {
+  color-scheme:dark;
+  --foreground:#ffffff; --secondary:#d0d0d0; --muted:#b5b5b5;
+  --app-bg:#202020; --bar:#2b2b2b; --surface:#272727; --surface-alt:#323232;
+  --field:#333333; --field-border:#8a8a8a; --border:#ffffff18;
+  --hover:#ffffff0f; --selected:#60cdff1a; --folder-fill:#60cdff26; --selection:#60cdff40;
+  --accent:#60cdff; --accent-hover:#98e0ff; --on-accent:#003047;
+  --checker-a:#242424; --checker-b:#2c2c2c; --error:#ffb4ab;
+  --syntax-comment:#aaaaaa; --syntax-purple:#d6b3f3; --syntax-blue:#a9caff;
+  --syntax-string:#a5d6ad; --syntax-number:#f2c787; --syntax-red:#ffb4ab; --syntax-cyan:#9adce8;
+}
+input,select { color:inherit; accent-color:var(--accent); }
+select:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+.setting select { font:inherit; font-size:12px; min-width:138px; max-width:50%; padding:7px 9px; border:1px solid var(--field-border); border-radius:4px; background:var(--field); color:var(--foreground); }
+@media print {
+  :root,:root[data-theme] { color-scheme:light; --foreground:#111111; --secondary:#424242; --muted:#606060; --surface:#ffffff; --surface-alt:#f3f3f3; --paper:#ffffff; --ink:#111111; --border:#cccccc; --accent:#0067c0; }
+}

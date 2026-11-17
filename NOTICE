@@ -1,0 +1,14 @@
+All View
+Copyright (c) 2026 All View contributors.
+
+Project-owned source is licensed under the GNU Affero General Public License,
+version 3 only (AGPL-3.0-only). You may redistribute and modify it under those
+terms. It is provided without warranty. The full license is in LICENSE.
+
+The files in src-sharex retain their GPL-3.0-or-later notices. They integrate
+ShareX, copyright its respective contributors, under the GNU General Public
+License version 3 or later. The GPLv3 text is in COPYING.GPL-3.0.
+ShareX source: https://github.com/ShareX/ShareX/tree/6b5a1a2b53818773fc01d443ab093605ef482999
+
+External libraries and components retain their respective licenses and
+copyright notices. This source snapshot does not include their distributions.
